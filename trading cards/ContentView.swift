@@ -12,8 +12,9 @@ struct ContentView: View {
     let teamFirstColour: Color
     let teamSecondColour: Color
     let playerImage: String
+    let playerName: String
     let teamLogo: String
-    
+    let gradientColors = Gradient(colors: [Color.lightGold, Color.darkGold])
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 20)
@@ -27,21 +28,44 @@ struct ContentView: View {
                 .padding()
             
             VStack {
-                Image(playerImage)
-                            .resizable()
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .aspectRatio(contentMode: .fit)
-                        .padding(.init(top: 50, leading: 45, bottom: 70, trailing: 45))
+                ZStack {
+                    Image(playerImage)
+                                .resizable()
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .aspectRatio(contentMode: .fit)
+                            .padding(.init(top: 50, leading: 45, bottom: 280, trailing: 45))
+                    
+                         
+                            .overlay(Text(playerName))
+                            .font(Font.custom("GillSans-UltraBold",size:40))
+                            .offset(x: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                                    
+                                    
+                    
+                    LinearGradient(gradient: gradientColors, startPoint: .leading, endPoint: .trailing)
+                        .mask {
+                            Text("\(playerName)")
+                                .font(Font.custom("GillSans-UltraBold",size:40))
+                                
+                            
+                        }
+                    
+                    
+                }
+                
                 Spacer()
             }
             VStack {
                 HStack {
                     Spacer()
                     ZStack {
-                        Circle()
+                        Image(teamLogo)
+                            .resizable()
+                            .scaledToFit()
+                        .clipShape(Circle())
                             .frame(width: 150)
                         .foregroundColor(teamFirstColour)
-                    
+                        
                     }
 
                 }
@@ -53,5 +77,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(teamFirstColour: .yellow, teamSecondColour: .red, playerImage: "playerimage", teamLogo: "teamlogo")
+    ContentView(teamFirstColour: .yellow, teamSecondColour: .red, playerImage: "playerimage", playerName: "Bob Probert", teamLogo: "teamLogo")
 }
