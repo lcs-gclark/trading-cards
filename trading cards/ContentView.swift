@@ -9,42 +9,49 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let teamFirstColour: Color
+    let teamSecondColour: Color
+    let playerImage: String
+    let teamLogo: String
+    
     var body: some View {
         ZStack{
-            Color(.blue)
-                .ignoresSafeArea()
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(teamFirstColour)
+                .padding()
+            
+                
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(teamSecondColour)
+                    .padding()
+                .padding()
+            
+            VStack {
+                Image(playerImage)
+                            .resizable()
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .aspectRatio(contentMode: .fit)
+                        .padding(.init(top: 50, leading: 45, bottom: 70, trailing: 45))
+                Spacer()
+            }
             VStack {
                 HStack {
-                    Text("hello")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     Spacer()
+                    ZStack {
+                        Circle()
+                            .frame(width: 150)
+                        .foregroundColor(teamFirstColour)
+                    
+                    }
+
                 }
-            Spacer()
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(.blue)
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .padding()
-                    Rectangle()
-                        .foregroundColor(.red)
-                        .padding()
-                        .padding()
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .padding()
-                        .padding()
-                        .padding()
-                }
-                Rectangle()
-                    .foregroundColor(.white)
-                    .ignoresSafeArea()
+                Spacer()
             }
-                
+
         }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(teamFirstColour: .yellow, teamSecondColour: .red, playerImage: "playerimage", teamLogo: "teamlogo")
 }

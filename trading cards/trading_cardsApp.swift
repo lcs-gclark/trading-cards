@@ -11,7 +11,7 @@ import SwiftUI
 struct trading_cardsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(teamFirstColour: .yellow, teamSecondColour: .orange, playerImage: "playerimage", teamLogo: "teamlogo")
         }
     }
 }
