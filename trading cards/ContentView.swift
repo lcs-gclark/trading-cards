@@ -21,32 +21,34 @@ struct ContentView: View {
                 .foregroundColor(teamFirstColour)
                 .padding()
             
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(teamSecondColour)
-                    .padding()
+            
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(teamSecondColour)
+                .padding()
                 .padding()
             
             VStack {
                 ZStack {
                     Image(playerImage)
-                                .resizable()
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .aspectRatio(contentMode: .fit)
-                            .padding(.init(top: 50, leading: 45, bottom: 280, trailing: 45))
+                        .resizable()
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.init(top: 50, leading: 45, bottom: 280, trailing: 45))
                     
-                         
-                            .overlay(Text(playerName))
-                            .font(Font.custom("GillSans-UltraBold",size:40))
-                            .offset(x: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
-                                    
-                                    
+                    
+                        .overlay(
+                            Text(playerName)
+                                .font(Font.custom("GillSans-UltraBold",size:40))
+                                .offset(x: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                        )
+                    
+                    
                     
                     LinearGradient(gradient: gradientColors, startPoint: .leading, endPoint: .trailing)
                         .mask {
                             Text("\(playerName)")
                                 .font(Font.custom("GillSans-UltraBold",size:40))
-                                
+                            
                             
                         }
                     
@@ -62,16 +64,16 @@ struct ContentView: View {
                         Image(teamLogo)
                             .resizable()
                             .scaledToFit()
-                        .clipShape(Circle())
+                            .clipShape(Circle())
                             .frame(width: 150)
-                        .foregroundColor(teamFirstColour)
+                            .foregroundColor(teamFirstColour)
                         
                     }
-
+                    
                 }
                 Spacer()
             }
-
+            
         }
     }
 }
