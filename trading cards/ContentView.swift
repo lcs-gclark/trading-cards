@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DetailView: View {
     
     let teamFirstColour: Color
     let teamSecondColour: Color
@@ -79,5 +79,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(teamFirstColour: .yellow, teamSecondColour: .red, playerImage: "playerimage", playerName: "Bob Probert", teamLogo: "teamLogo")
+    DetailView(teamFirstColour: .yellow, teamSecondColour: .red, playerImage: "playerimage", playerName: "Bob Probert", teamLogo: "teamLogo")
 }
